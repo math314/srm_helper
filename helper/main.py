@@ -1,10 +1,10 @@
 #coding: utf-8
 import sys
 import os.path
+from subprocess import *
 
 import trans
 import visual_studio_srm
-import subprocess
 
 #todo browserの設定を外部で可能にしたい
 browser = os.getenv('LOCALAPPDATA') + r"\Google\Chrome\Application\chrome.exe";
@@ -17,7 +17,8 @@ try:
 	visual_studio_srm.cmd_for_srm(code_name)
 	out_html_name = trans.trans(html_name)
 
-	subprocess.call([browser,out_html_name])
+	#ブラウザでhtmlを開く
+	Popen([browser,out_html_name])
 except Exception, e:
 	print e
 	
