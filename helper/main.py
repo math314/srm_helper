@@ -7,10 +7,9 @@ import visual_studio_srm
 import subprocess
 
 #todo browserの設定を外部で可能にしたい
-browser = r"C:\Users\math\AppData\Local\Google\Chrome\Application\chrome.exe";
+browser = os.getenv('LOCALAPPDATA') + r"\Google\Chrome\Application\chrome.exe";
 try:
 	code_name = sys.argv[1]
-	#code_name = r"C:\math\Projects\competition\topcoder\BlurredDartboard.cpp"
 	code_name = os.path.abspath(code_name)
 	html_name = u"%s.html" % os.path.splitext(code_name)[0]
 
